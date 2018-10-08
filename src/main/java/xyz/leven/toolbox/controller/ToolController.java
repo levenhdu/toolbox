@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import xyz.leven.toolbox.dao.ToolDao;
 import xyz.leven.toolbox.entity.ToolEntity;
+import xyz.leven.toolbox.mapper.ToolMapper;
 
 import javax.annotation.Resource;
 
@@ -17,9 +18,13 @@ public class ToolController {
     @Resource
     ToolEntity toolEntity;
 
+    @Resource
+    ToolMapper toolMapper;
+
     @PostMapping("info")
     public Object info() {
-        return toolEntity;
+
+        return toolMapper.listTool();
     }
 
 }
