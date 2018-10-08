@@ -37,8 +37,21 @@
             <property name="enableSubPackages" value="false"/>
             <property name="immutable" value="false"/>
             <property name="trimStrings" value="false"/>
-            <property name="rootClass" value="xyz.leven.toolbox.entity.BaseEntity"/>
+            <property name="rootClass" value="xyz.leven.toolbox.entity.Base"/>
         </javaModelGenerator>
+
+
+
+
+        <sqlMapGenerator targetPackage="xyz.leven.toolbox.mapper" targetProject="src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <javaClientGenerator targetPackage="xyz.leven.toolbox.mapper" type="XMLMAPPER" targetProject="src/main/java">
+            <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
 
         <table tableName="tool">
             <generatedKey column="id" sqlStatement="JDBC"/>

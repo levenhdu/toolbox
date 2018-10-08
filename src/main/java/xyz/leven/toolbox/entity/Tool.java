@@ -3,7 +3,7 @@ package xyz.leven.toolbox.entity;
 import javax.persistence.*;
 
 @Table(name = "`tool`")
-public class Tool extends BaseEntity {
+public class Tool extends Base {
     @Id
     @Column(name = "`id`")
     @GeneratedValue(generator = "JDBC")
