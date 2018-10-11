@@ -6,8 +6,8 @@ import xyz.leven.toolbox.util.HttpClient;
 
 import java.io.IOException;
 
-public class BearyChatClient {
-    private static Logger log = LoggerFactory.getLogger(BearyChatClient.class);
+public class BearychatMsgClient {
+    private static Logger log = LoggerFactory.getLogger(BearychatMsgClient.class);
 
 
     /**
@@ -20,7 +20,20 @@ public class BearyChatClient {
         try {
             resp = HttpClient.post(INCOMING_HOOK_URL, Msg.builder().text(msg).build().toString());
         } catch (IOException e) {
-            log.info("[熊聊] 发送信息失败");
+            log.info("[bearyChat] 发送信息失败");
+        }
+        return resp;
+    }
+
+    /**
+     * 发送多媒体消息
+     */
+    public static String sendMultipleMsg(Msg msg) {
+        String resp = "";
+        try {
+            resp = HttpClient.post(INCOMING_HOOK_URL, msg.toString());
+        } catch (IOException e) {
+            log.info("[bearyChat] 发送多媒体消息失败");
         }
         return resp;
     }
