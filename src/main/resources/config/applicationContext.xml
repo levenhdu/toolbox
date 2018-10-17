@@ -34,7 +34,7 @@
 
     <!-- 事务 -->
     <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
+        <property name="dataSource" ref="routeDataSource"/>
     </bean>
     <aop:config proxy-target-class="true">
         <aop:pointcut id="method" expression="(execution(* xyz.leven.toolbox.service..*(..)))
@@ -46,4 +46,9 @@
             <tx:method name="*"/>
         </tx:attributes>
     </tx:advice>
+
+    <aop:aspectj-autoproxy proxy-target-class="true"/>
+
+
+
 </beans>
