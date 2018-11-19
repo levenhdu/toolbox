@@ -30,7 +30,6 @@ public class DataSourceAspect {
     @Before(value="anyMethod()")
     public void before(JoinPoint joinPoint) throws Throwable {
         MethodSignature methodSignature = (MethodSignature) joinPoint.getSignature();
-        System.out.println("ss");
         Method method = methodSignature.getMethod();
         //如果方法体上使用了DataSource注解
         if (method.isAnnotationPresent(Ds.class)) {
